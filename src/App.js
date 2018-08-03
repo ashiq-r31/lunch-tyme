@@ -1,9 +1,8 @@
 import 'babel-polyfill'
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import { hot } from 'react-hot-loader'
-import Listing from './Listing'
+import RestaurantPreview from './RestaurantPreview'
 import DetailedView from './DetailedView';
 import NavBar from './NavBar'
 import Footer from './Footer'
@@ -29,7 +28,6 @@ class App extends Component {
   }
 
   onSelect = data => {
-    console.log(data)
     this.setState({ detailedViewData: { isOpen: true, data }})
     document.body.style.overflow = 'hidden'
   }
@@ -40,16 +38,20 @@ class App extends Component {
   }
 
   render({ restaurants, detailedViewData } = this.state) {
-    console.log(this.state)
     return(
       <div>
-        <NavBar onBack={this.onBack} />
+        <NavBar onBack={this.onBack} hasBack={detailedViewData.isOpen} />
 
-        <div style={{ paddingTop: 64, paddingBottom: 72, height: '100%', overhidden: detailedViewData.isOpen && 'hidden' }}>
+        <div className='list-container flex-container'>
           {detailedViewData.isOpen && <DetailedView restaurant={detailedViewData.data} />}
-          <div>
+          <div className='flex-row'>
             {restaurants.map((restaurant, index) => (
-              <Listing key={`restaurant-${index}`} restaurant={restaurant} onSelect={this.onSelect} />
+              <div className='flex-column' key={`column-${index}`}>
+                <RestaurantPreview 
+                  key={`restaurant-${index}`} 
+                  restaurant={restaurant} 
+                  onSelect={this.onSelect} />
+              </div>
             ))}
           </div>
         </div>
@@ -58,10 +60,6 @@ class App extends Component {
       </div>
     )
   }
-}
-
-App.propTypes = {
-  
 }
 
 export default hot(module)(App)

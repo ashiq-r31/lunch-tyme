@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-const Listing = ({ restaurant, onSelect }) => (
+const RestaurantPreview = ({ restaurant, onSelect }) => (
   <div 
-    className='restaurant-preview'
+    className='restaurant-preview' 
     onClick={() => onSelect({ ...restaurant })}
     style={{ 
       backgroundImage: `url('/images/cellGradientBackground@2x.png'), url(${restaurant.backgroundImageURL})`, 
@@ -14,4 +14,4 @@ const Listing = ({ restaurant, onSelect }) => (
   </div>
 )
 
-export default Listing
+export default RestaurantPreview

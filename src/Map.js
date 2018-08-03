@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 
-const mapStyle = {
-  width: 'inherit',
-  height: 180,
-}
-
 export default class Map extends Component { 
   componentDidMount() {
     const myLatLng = {
@@ -26,7 +21,7 @@ export default class Map extends Component {
 
   render() {
     return(
-      <div ref='map' style={mapStyle}></div>
+      <div ref='map' style={{ width: '100%', height: 180 }}></div>
     )
   }
 }

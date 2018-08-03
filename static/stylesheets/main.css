@@ -1,3 +1,7 @@
+body {
+  background-color: #000000c2;
+}
+
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Avenir Next';
   line-height: 1;
@@ -9,6 +13,7 @@ h1, h2, h3, h4, h5, h6, p {
   width: 100%;
   background-color: #43E895;
   padding-bottom: 16px;
+  -webkit-align-items: flex-end;
   align-items: flex-end;
 }
 
@@ -37,28 +42,58 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .flex-container {
+  display: -webkit-box;  
+  display: -webkit-flex;
   display: flex;
 }
 
-.flex-item {
-  flex: 1;
+.flex-row {
+  display: -webkit-box;  
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+  flex: 100%;
+  display: -webkit-box;  
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-items: center;
   align-items: center;
 }
 
+.list-container {
+  padding-top: 64px;
+  padding-bottom: 50px;
+  height: 100%;
+}
+
 .restaurant-details {
+  display: -webkit-box;  
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
-  padding-top: 6px;
-  padding-left: 12px;
-  padding-bottom: 6px;
+  -webkit-justify-content: flex-end;
   justify-content: flex-end;
+  -webkit-align-items: flex-start;
   align-items: flex-start;
+  padding: 6px 12px;
 }
 
 .restaurant-preview {
+  display: -webkit-box;  
+  display: -webkit-flex;
   display: flex;
   height: 180px;
   width: 100%;
@@ -77,9 +112,14 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .detail-view {
+  -webkit-animation: slide 0.2s forwards;
+  -webkit-animation-delay: .2s;
+  animation: slide 0.2s forwards;
+  animation-delay: .1s;
   background-color: white;
   position: fixed;
   top: 64;
+  left: 100%;
   width: 100%;
   height: 100%;
 }
@@ -87,6 +127,7 @@ h1, h2, h3, h4, h5, h6, p {
 .detail-banner {
   background-color: #34B379;
   height: 60px;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
@@ -94,3 +135,51 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 16px 12px;
   color: #2A2A2A;
 }
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
+@media (min-width: 600px) {
+  .flex-column {
+    -webkit-box-flex: 50%;
+    -webkit-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+
+  .detail-view {
+    width: 75%;
+  }
+
+  @-webkit-keyframes slide {
+    100% { left: 25%; }
+  }
+  
+  @keyframes slide {
+    100% { left: 25%; }
+  }
+}
+
+@media (min-width: 900px) {
+  .flex-column {
+    -webkit-box-flex: 33.33%;
+    -webkit-flex: 33.33%;
+    flex: 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flex-column {
+    -webkit-box-flex: 25%;
+    -webkit-flex: 25%;
+    flex: 25%;
+    max-width: 25%;
+  }
+}
+
