@@ -18,6 +18,7 @@ export class Map extends Component {
           lat: location.lat,
           lng: location.lng
         },
+        animation: google.maps.Animation.DROP,
         map: this.map
       })
     }
