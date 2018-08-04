@@ -17,13 +17,6 @@ h1, h2, h3, h4, h5, h6, p {
   align-items: flex-end;
 }
 
-.nav-column {
-  -webkit-box-flex: 100%;
-  -webkit-flex: 100%;
-  flex: 100%;
-  width: 33.33%;
-}
-
 .app-name {
   font-family: 'AvenirNext-DemiBold';
   color: white;
