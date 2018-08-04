@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 const NavBar = ({ onBack, hasBack }) => (
   <div className='nav-bar flex-container'>
-    <div className='flex-column' style={{ flex: '100%', maxWidth: '33.33%' }}>
-      {hasBack && <img onClick={() => onBack()} 
-        style={{ marginRight: 'auto', height: 24, marginLeft: 12 }} src='images/ic_webBack@2x.png' />}
+    <div className='flex-column nav-column'>
+      {hasBack && <img className='icon' onClick={() => onBack()} style={{ marginRight: 'auto', marginLeft: 12 }} src='images/ic_webBack@2x.png' />}
     </div>
 
-    <div className='flex-column' style={{ flex: '100%', maxWidth: '33.33%' }}>
+    <div className='flex-column nav-column'>
       <h2 className='app-name'>Lunch Tyme</h2>
     </div>
 
-    <div className='flex-column' style={{ flex: '100%', maxWidth: '33.33%' }}>
-      <img style={{ marginLeft: 'auto', height: 24, marginRight: 12 }} src='images/icon_map@2x.png' />
+    <div className='flex-column nav-column'>
+      <img className='icon' style={{ marginLeft: 'auto', marginRight: 12 }} src='images/icon_map@2x.png' />
     </div>
   </div>
 )
+
+NavBar.propTypes = {
+  onBack: PropTypes.func,
+  hasBack: PropTypes.bool
+}
 
 export default NavBar

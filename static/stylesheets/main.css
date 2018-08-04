@@ -17,8 +17,15 @@ h1, h2, h3, h4, h5, h6, p {
   align-items: flex-end;
 }
 
+.nav-column {
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+  flex: 100%;
+  max-width: 33.33%;
+}
+
 .app-name {
-  font-family: 'Avenir Next Demi Bold';
+  font-family: 'AvenirNext-DemiBold';
   color: white;
   font-size: 17px;
 }
@@ -100,7 +107,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .restaurant-name {
-  font-family: 'Avenir Next Demi Bold';
+  font-family: 'AvenirNext-DemiBold';
   color: white;
   font-size: 16px;
 }
@@ -134,6 +141,15 @@ h1, h2, h3, h4, h5, h6, p {
 .detail-group {
   padding: 16px 12px;
   color: #2A2A2A;
+}
+
+.contact {
+  margin-top: 26px;
+}
+
+.error {
+  font-family: 'AvenirNext-Italic';
+  color: #9E9E9E;
 }
 
 @-webkit-keyframes slide {

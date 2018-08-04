@@ -1,23 +1,73 @@
 import React, { Component } from 'react'
 import Map from './Map'
+import PropTypes from 'prop-types'
 
-const DetailedView = ({ restaurant }) => (
-  <div className='detail-view'>
-    <Map location={restaurant.location} />
+class DetailedView extends Component {
 
-    <div className='restaurant-details detail-banner'>
-      <h1 className='restaurant-name'>{restaurant.name}</h1>
-      <h2 className='restaurant-category'>{restaurant.category}</h2>
-    </div>
+  renderLocation = () => {
+    const { location } = this.props.restaurant
 
-    <div className='detail-group'>
-      <p>{restaurant.location.formattedAddress[0]}</p>
-      <p style={{ marginBottom: 26 }}> {restaurant.location.formattedAddress[1]}</p>
+    const street = !!location && !!location.formattedAddress[0]
+      ? <p>{location.formattedAddress[0]}</p>
+      : <p className='error'>Street address not available</p>
+
+    const city = !!location && !!location.formattedAddress[1]
+      ? <p>{location.formattedAddress[1]}</p>
+      : <p className='error'>City and state address not available</p>
     
-      <p style={{ marginBottom: 26 }}>{(restaurant.contact) ? restaurant.contact.formattedPhone : 'Phone not available'}</p>
-      <p>{(restaurant.contact.length) ? `@${restaurant.contact.twitter}` : 'Twitter handle not available'}</p>
-    </div>
-  </div>
-)
+    return (
+      <div>
+        {street}
+        {city}
+      </div>
+    )
+  }
+
+  renderContact = () => {
+    const { contact } = this.props.restaurant
+
+    const phone = !!contact && !!contact.formattedPhone 
+      ? <p className='contact'>{contact.formattedPhone}</p> 
+      : <p className='contact error'>Phone not available</p>
+
+    const twitter = !!contact && !!contact.twitter
+      ? <p className='contact'>{`@${contact.twitter}`}</p>
+      : <p className='contact error'>Twitter handle not available</p>
+
+    return (
+      <div>
+        {phone}
+        {twitter}
+      </div>
+    )
+  }
+
+  render({ restaurant } = this.props) {
+    return (
+      <div className='detail-view'>
+        <Map location={restaurant.location} />
+
+        <div className='restaurant-details detail-banner'>
+          <h1 className='restaurant-name'>{restaurant.name}</h1>
+          <h2 className='restaurant-category'>{restaurant.category}</h2>
+        </div>
+
+        <div className='detail-group'>
+          {this.renderLocation()}
+          {this.renderContact()}
+        </div>
+      </div>
+    )
+  }
+}
+
+DetailedView.propTypes = {
+  restaurant: PropTypes.shape({
+    location: PropTypes.object,
+    contact: PropTypes.object,
+    name: PropTypes.string,
+    category: PropTypes.string
+  })
+}
 
 export default DetailedView
