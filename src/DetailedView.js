@@ -42,9 +42,9 @@ class DetailedView extends Component {
     )
   }
 
-  render({ restaurant } = this.props) {
+  render({ restaurant, isOpen } = this.props) {
     return (
-      <div className='detail-view'>
+      <div className={(isOpen) ? 'detail-view detail-view-open' : 'detail-view'}>
         <Map location={restaurant.location} />
 
         <div className='restaurant-details detail-banner'>
@@ -67,7 +67,8 @@ DetailedView.propTypes = {
     contact: PropTypes.object,
     name: PropTypes.string,
     category: PropTypes.string
-  })
+  }),
+  isOpen: PropTypes.bool
 }
 
 export default DetailedView

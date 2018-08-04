@@ -119,16 +119,20 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .detail-view {
-  -webkit-animation: slide 0.2s forwards;
-  -webkit-animation-delay: .2s;
-  animation: slide 0.2s forwards;
-  animation-delay: .1s;
+  -webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	transition: transform 300ms linear;
   background-color: white;
   position: fixed;
-  top: 64;
-  left: 100%;
+  top: 64px;
   width: 100%;
   height: 100%;
+}
+
+.detail-view-open {
+  -webkit-transform: none;
+	transform: none;
+	transition: transform 300ms linear;
 }
 
 .detail-banner {
@@ -152,14 +156,6 @@ h1, h2, h3, h4, h5, h6, p {
   color: #9E9E9E;
 }
 
-@-webkit-keyframes slide {
-  100% { left: 0; }
-}
-
-@keyframes slide {
-  100% { left: 0; }
-}
-
 @media (min-width: 600px) {
   .flex-column {
     -webkit-box-flex: 50%;
@@ -170,14 +166,6 @@ h1, h2, h3, h4, h5, h6, p {
 
   .detail-view {
     width: 75%;
-  }
-
-  @-webkit-keyframes slide {
-    100% { left: 25%; }
-  }
-  
-  @keyframes slide {
-    100% { left: 25%; }
   }
 }
 

@@ -44,7 +44,7 @@ class App extends Component {
         <NavBar onBack={this.onBack} hasBack={detailedViewData.isOpen} />
 
         <div className='list-container flex-container'>
-          {detailedViewData.isOpen && <DetailedView restaurant={detailedViewData.data} />}
+          <DetailedView restaurant={detailedViewData.data} isOpen={detailedViewData.isOpen} />
           <div className='flex-row'>
             {restaurants.map((restaurant, index) => (
               <div className='flex-column' key={`column-${index}`}>
