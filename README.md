@@ -1,6 +1,5 @@
 # Built with React and Webpack
-
-Visit the following to see the page live [here](https://ashiq-r31.github.io/lunch-tyme/)
+The page is live [here](https://ashiq-r31.github.io/lunch-tyme/).
 
 Note: the Google Maps API key may have expired (map may display: cannot open maps on this page), feel free to use your own!
 
