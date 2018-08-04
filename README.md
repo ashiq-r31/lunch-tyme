@@ -1,4 +1,6 @@
-## Information
+# Built with React and Webpack
+
+# Information
 
 - Static HTML entry is in `static/index.html`
 - React entry point is `src/App.jsx`.
