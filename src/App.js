@@ -6,8 +6,6 @@ import RestaurantPreview from './RestaurantPreview'
 import DetailedView from './DetailedView';
 import NavBar from './NavBar'
 import Footer from './Footer'
-import reset from '../static/stylesheets/reset.css'
-import main from '../static/stylesheets/main.css'
 
 class App extends Component {
   state = {
@@ -29,11 +27,14 @@ class App extends Component {
 
   onSelect = data => {
     this.setState({ detailedViewData: { isOpen: true, data }})
-    document.body.style.overflow = 'hidden'
+    // disable scrollable view when on mobiel
+    const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    if(width <= 600) document.body.style.overflow = 'hidden'
   }
 
   onBack = () => {
     this.setState({ detailedViewData: { isOpen: false, data: {} }})
+    // enable scrollable view
     document.body.style.overflow = 'scroll'
   }
 
