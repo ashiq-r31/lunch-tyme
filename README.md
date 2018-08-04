@@ -1,6 +1,6 @@
 # Built with React and Webpack
 
-Note: the Google Maps API key may have expired (maps may display: cannot open maps on this page), feel free to use your own!
+Note: the Google Maps API key may have expired (map may display: cannot open maps on this page), feel free to use your own!
 
 # Information
 
