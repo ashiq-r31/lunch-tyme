@@ -1,5 +1,7 @@
 # Built with React and Webpack
 
+Note: the Google Maps API key may have expired (maps may display: cannot open maps on this page), feel free to use your own!
+
 # Information
 
 - Static HTML entry is in `static/index.html`
