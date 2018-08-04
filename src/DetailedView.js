@@ -3,7 +3,6 @@ import Map from './Map'
 import PropTypes from 'prop-types'
 
 class DetailedView extends Component {
-
   renderLocation = () => {
     const { location } = this.props.restaurant
 
