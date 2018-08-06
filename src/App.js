@@ -27,7 +27,7 @@ class App extends Component {
 
   onSelect = data => {
     this.setState({ detailedViewData: { isOpen: true, data }})
-    // disable scrollable view when on mobiel
+    // disable scrollable view when on mobile
     const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
     if(width <= 600) document.body.style.overflow = 'hidden'
   }
