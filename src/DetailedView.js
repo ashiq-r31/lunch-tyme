@@ -44,7 +44,7 @@ class DetailedView extends Component {
   render({ restaurant, isOpen } = this.props) {
     return (
       <div className={(isOpen) ? 'detail-view detail-view-open' : 'detail-view'}>
-        <Map location={restaurant.location} />
+        <Map location={restaurant.location} name={restaurant.name} />
 
         <div className='restaurant-details detail-banner'>
           <h1 className='restaurant-name'>{restaurant.name}</h1>

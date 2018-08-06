@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const RestaurantPreview = ({ restaurant, onSelect }) => (
+const ListView = ({ restaurant, onSelect }) => (
   <div 
     className='restaurant-preview' 
     onClick={() => onSelect({ ...restaurant })}
@@ -15,7 +15,7 @@ const RestaurantPreview = ({ restaurant, onSelect }) => (
   </div>
 )
 
-RestaurantPreview.propTypes = {
+ListView.propTypes = {
   restaurant: PropTypes.shape({
     name: PropTypes.string,
     category: PropTypes.string,
@@ -24,4 +24,4 @@ RestaurantPreview.propTypes = {
   onSelect: PropTypes.func
 }
 
-export default RestaurantPreview
+export default ListView

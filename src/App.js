@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import React, { Component } from 'react'
 import axios from 'axios'
 import { hot } from 'react-hot-loader'
-import RestaurantPreview from './RestaurantPreview'
+import ListView from './ListView'
 import DetailedView from './DetailedView';
 import NavBar from './NavBar'
 import Footer from './Footer'
@@ -48,7 +48,7 @@ class App extends Component {
           <div className='flex-row'>
             {restaurants.map((restaurant, index) => (
               <div className='flex-column' key={`column-${index}`}>
-                <RestaurantPreview 
+                <ListView 
                   key={`restaurant-${index}`} 
                   restaurant={restaurant} 
                   onSelect={this.onSelect} />
