@@ -1,7 +1,6 @@
 const path = require('path')
 
 const STATIC_PATH = path.join(__dirname, 'static')
-const BUILD_PATH = path.join(__dirname, 'build')
 
 module.exports = {
   entry: './src/index.js',
